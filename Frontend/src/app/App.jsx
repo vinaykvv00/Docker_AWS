@@ -35,9 +35,14 @@ function App() {
     console.log(username);
 
     if (username) {
-      const provider = new SocketIOProvider("http://localhost:3000", "monaco", ydoc, {
-        autoConnect: true,
-      });
+      const provider = new SocketIOProvider(
+        window.location.origin,
+        "monaco",
+        ydoc,
+        {
+          autoConnect: true,
+        },
+      );
 
       provider.awareness.setLocalStateField("user", { username });
 
